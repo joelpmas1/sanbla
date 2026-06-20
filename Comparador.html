@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Comparador · Sanbla Finance — v1 vs v2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --teal-300:#36D8BD;--teal-600:#0E8C7C;--teal-700:#0B6E63;
+    --ink-980:#060E10;--ink-900:#0B181B;--ink-850:#0F2024;
+    --grad:linear-gradient(118deg,#1FC2A6,#0B6E63);
+    --line:rgba(255,255,255,.1);--line2:rgba(255,255,255,.16);
+    --on:#F4F8F7;--mut:#A6B4B5;--faint:#6B7B7D;
+    --mono:"Geist Mono",ui-monospace,monospace;
+    --serif:"Newsreader",Georgia,serif;
+    --body:"Hanken Grotesk",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--ink-980);color:var(--on);font-family:var(--body);-webkit-font-smoothing:antialiased;min-height:100vh;}
+  .bg{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(60% 50% at 85% 0%,rgba(18,168,146,.18),transparent 60%),radial-gradient(50% 60% at 5% 100%,rgba(11,110,99,.16),transparent 60%);}
+  .wrap{position:relative;z-index:1;max-width:1080px;margin:0 auto;padding:clamp(40px,7vw,96px) clamp(20px,5vw,48px);}
+  .top{display:flex;align-items:center;gap:13px;}
+  .mark{width:42px;height:42px;border-radius:12px;}
+  .brand b{font-family:var(--serif);font-weight:600;font-size:21px;display:block;line-height:1;}
+  .brand span{font-family:var(--mono);font-size:9.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--faint);}
+  .kick{font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-300);margin-top:clamp(40px,6vw,72px);display:inline-flex;align-items:center;gap:10px;}
+  .kick::before{content:"";width:26px;height:1.5px;background:var(--grad);}
+  h1{font-family:var(--serif);font-weight:500;font-size:clamp(34px,5.4vw,58px);line-height:1.04;letter-spacing:-.02em;margin:20px 0 0;max-width:18ch;}
+  h1 em{font-style:italic;color:var(--teal-300);}
+  .lede{color:var(--mut);font-size:19px;margin-top:20px;max-width:60ch;line-height:1.6;}
+  .grid{margin-top:clamp(40px,6vw,64px);display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+  .card{background:var(--ink-850);border:1px solid var(--line);border-radius:20px;padding:30px;transition:border-color .2s ease,transform .2s ease;}
+  .card:hover{border-color:rgba(54,216,189,.4);transform:translateY(-3px);}
+  .card .pg{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);}
+  .card h2{font-family:var(--serif);font-weight:500;font-size:26px;margin:10px 0 0;}
+  .card p{color:var(--mut);font-size:14.5px;margin-top:10px;line-height:1.5;min-height:42px;}
+  .links{display:flex;gap:10px;margin-top:22px;}
+  .lk{flex:1;display:flex;flex-direction:column;gap:3px;padding:13px 16px;border-radius:12px;text-decoration:none;border:1px solid var(--line2);transition:all .18s ease;}
+  .lk small{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;opacity:.7;}
+  .lk b{font-size:15px;font-weight:600;}
+  .lk.v1{background:rgba(255,255,255,.03);color:var(--on);}
+  .lk.v1:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.3);}
+  .lk.v2{background:var(--grad);color:#fff;border-color:transparent;box-shadow:0 12px 26px -12px rgba(11,110,99,.6);}
+  .lk.v2:hover{transform:translateY(-2px);box-shadow:0 18px 34px -12px rgba(11,110,99,.7);}
+  .note{margin-top:clamp(36px,5vw,56px);padding:24px 26px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.02);color:var(--mut);font-size:14.5px;line-height:1.65;}
+  .note b{color:var(--on);font-weight:600;}
+  .note .mono{font-family:var(--mono);color:var(--teal-300);font-size:13px;}
+  @media(max-width:680px){.grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="wrap">
+  <div class="top">
+    <svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#36D8BD"/><stop offset="1" stop-color="#0B6E63"/></linearGradient></defs><rect width="40" height="40" rx="11" fill="url(#lg)"/><path d="M26.5 14.5C25 12.8 22.7 12 20.2 12c-3.4 0-5.7 1.6-5.7 4 0 5.6 12.9 2.8 12.9 8.7 0 2.7-2.7 4.5-6.6 4.5-2.9 0-5.4-1-6.8-2.9" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="brand"><b>Sanbla</b><span>Finance</span></span>
+  </div>
+
+  <span class="kick">Comparador de propuestas</span>
+  <h1>Dos versiones, lado a lado. <em>Para decidir cómo seguir.</em></h1>
+  <p class="lede">Cada página tiene dos propuestas: <b style="color:var(--on)">v1</b> (la versión actual, sobria y directa) y <b style="color:var(--on)">v2 Premium</b> (dirección editorial con serif, tipografía mono para datos, capas, motivo de marca y movimiento). Abre ambas y compáralas.</p>
+
+  <div class="grid">
+    <div class="card">
+      <div class="pg">01 · Home</div>
+      <h2>Inicio</h2>
+      <p>Hero, productos, por qué Sanbla, proceso y grupo.</p>
+      <div class="links"><a class="lk v1" href="Inicio.html"><small>Actual</small><b>Ver v1 →</b></a><a class="lk v2" href="Inicio-v2.html"><small>Premium</small><b>Ver v2 →</b></a></div>
+    </div>
+    <div class="card">
+      <div class="pg">02 · Producto</div>
+      <h2>Póliza de Crédito</h2>
+      <p>Cómo funciona, encaje, línea vs préstamo y formulario.</p>
+      <div class="links"><a class="lk v1" href="Poliza.html"><small>Actual</small><b>Ver v1 →</b></a><a class="lk v2" href="Poliza-v2.html"><small>Premium</small><b>Ver v2 →</b></a></div>
+    </div>
+    <div class="card">
+      <div class="pg">03 · Producto</div>
+      <h2>Factoring</h2>
+      <p>3 pasos, encaje, tabla comparativa y formulario.</p>
+      <div class="links"><a class="lk v1" href="Factoring.html"><small>Actual</small><b>Ver v1 →</b></a><a class="lk v2" href="Factoring-v2.html"><small>Premium</small><b>Ver v2 →</b></a></div>
+    </div>
+    <div class="card">
+      <div class="pg">04 · Empresa</div>
+      <h2>Sobre nosotros</h2>
+      <p>Grupo Sanbla, método, equipo, cifras y oficinas.</p>
+      <div class="links"><a class="lk v1" href="Sobre-nosotros.html"><small>Actual</small><b>Ver v1 →</b></a><a class="lk v2" href="Sobre-nosotros-v2.html"><small>Premium</small><b>Ver v2 →</b></a></div>
+    </div>
+    <div class="card">
+      <div class="pg">05 · Empresa</div>
+      <h2>Contacto</h2>
+      <p>Hero, formulario sobre fondo claro, oficinas y canales.</p>
+      <div class="links"><a class="lk v1" href="Contacto.html"><small>Actual</small><b>Ver v1 →</b></a><a class="lk v2" href="Contacto-v2.html"><small>Premium</small><b>Ver v2 →</b></a></div>
+    </div>
+    <div class="card" style="display:flex;flex-direction:column;justify-content:center;background:rgba(54,216,189,.06);border-color:rgba(54,216,189,.2);">
+      <div class="pg" style="color:var(--teal-300);">Qué cambia en v2</div>
+      <p style="color:var(--mut);font-size:14px;line-height:1.7;margin-top:12px;min-height:0;">→ Titulares en serif editorial (Newsreader)<br/>→ Cifras y etiquetas en tipografía mono<br/>→ Capas, malla de degradado y motivo "S"<br/>→ Animaciones al hacer scroll + cifras que cuentan<br/>→ CTA fijo en móvil · sello "respuesta &lt;48h"</p>
+    </div>
+  </div>
+
+  <div class="note">
+    <b>Nota para diseño:</b> en cada página v2 hay un sello <span class="mono">v2 · Premium</span> abajo a la izquierda que enlaza de vuelta a la v1 equivalente, para comparar rápido. Las imágenes son huecos arrastrables; cuando estén las fotos definitivas se sustituyen por <span class="mono">&lt;img&gt;</span> fijos. Tipografías vía Google Fonts (Newsreader · Hanken Grotesk · Geist Mono).
+  </div>
+</div>
+</body>
+</html>

@@ -45,6 +45,9 @@
   .lk.v1:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.3);}
   .lk.v2{background:var(--grad);color:#fff;border-color:transparent;box-shadow:0 12px 26px -12px rgba(11,110,99,.6);}
   .lk.v2:hover{transform:translateY(-2px);box-shadow:0 18px 34px -12px rgba(11,110,99,.7);}
+  .lk.na{flex:0 0 auto;background:transparent;color:var(--faint);border-style:dashed;cursor:default;}
+  .lk.na:hover{transform:none;background:transparent;}
+  .tag-new{display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:#081214;background:var(--teal-300);padding:3px 8px;border-radius:999px;margin-left:8px;vertical-align:middle;}
   .note{margin-top:clamp(36px,5vw,56px);padding:24px 26px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.02);color:var(--mut);font-size:14.5px;line-height:1.65;}
   .note b{color:var(--on);font-weight:600;}
   .note .mono{font-family:var(--mono);color:var(--teal-300);font-size:13px;}
@@ -61,7 +64,7 @@
 
   <span class="kick">Comparador de propuestas</span>
   <h1>Dos versiones, lado a lado. <em>Para decidir cómo seguir.</em></h1>
-  <p class="lede">Cada página tiene dos propuestas: <b style="color:var(--on)">v1</b> (la versión actual, sobria y directa) y <b style="color:var(--on)">v2 Premium</b> (dirección editorial con serif, tipografía mono para datos, capas, motivo de marca y movimiento). Abre ambas y compáralas.</p>
+  <p class="lede">Todas las landings del sitio, centralizadas. Las cinco primeras tienen dos propuestas —<b style="color:var(--on)">v1</b> (actual, sobria y directa) y <b style="color:var(--on)">v2 Premium</b> (editorial con serif, mono para datos, capas y movimiento)—. Los nuevos hubs de categoría se han diseñado directamente en v2.</p>
 
   <div class="grid">
     <div class="card">
@@ -94,7 +97,19 @@
       <p>Hero, formulario sobre fondo claro, oficinas y canales.</p>
       <div class="links"><a class="lk v1" href="Contacto.html"><small>Actual</small><b>Ver v1 →</b></a><a class="lk v2" href="Contacto-v2.html"><small>Premium</small><b>Ver v2 →</b></a></div>
     </div>
-    <div class="card" style="display:flex;flex-direction:column;justify-content:center;background:rgba(54,216,189,.06);border-color:rgba(54,216,189,.2);">
+    <div class="card">
+      <div class="pg">06 · Categoría padre <span class="tag-new">Nuevo</span></div>
+      <h2>Liquidez y circulante</h2>
+      <p>Hub de circulante: situaciones, 8 productos, FAQ y formulario.</p>
+      <div class="links"><span class="lk na"><small>Sin v1</small><b>—</b></span><a class="lk v2" href="Liquidez-v2.html"><small>Premium</small><b>Ver v2 →</b></a></div>
+    </div>
+    <div class="card">
+      <div class="pg">07 · Categoría padre <span class="tag-new">Nuevo</span></div>
+      <h2>Inversión y crecimiento</h2>
+      <p>Hub de inversión: situaciones, 9 productos, comparativa, FAQ y formulario.</p>
+      <div class="links"><span class="lk na"><small>Sin v1</small><b>—</b></span><a class="lk v2" href="Inversion-v2.html"><small>Premium</small><b>Ver v2 →</b></a></div>
+    </div>
+    <div class="card" style="display:flex;flex-direction:column;justify-content:center;background:rgba(54,216,189,.06);border-color:rgba(54,216,239,.2);">
       <div class="pg" style="color:var(--teal-300);">Qué cambia en v2</div>
       <p style="color:var(--mut);font-size:14px;line-height:1.7;margin-top:12px;min-height:0;">→ Titulares en serif editorial (Newsreader)<br/>→ Cifras y etiquetas en tipografía mono<br/>→ Capas, malla de degradado y motivo "S"<br/>→ Animaciones al hacer scroll + cifras que cuentan<br/>→ CTA fijo en móvil · sello "respuesta &lt;48h"</p>
     </div>
@@ -104,5 +119,9 @@
     <b>Nota para diseño:</b> en cada página v2 hay un sello <span class="mono">v2 · Premium</span> abajo a la izquierda que enlaza de vuelta a la v1 equivalente, para comparar rápido. Las imágenes son huecos arrastrables; cuando estén las fotos definitivas se sustituyen por <span class="mono">&lt;img&gt;</span> fijos. Tipografías vía Google Fonts (Newsreader · Hanken Grotesk · Geist Mono).
   </div>
 </div>
+
+<template id="__bundler_thumbnail" data-bg-color="#060E10">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="tg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#36D8BD"/><stop offset="1" stop-color="#0B6E63"/></linearGradient></defs><rect width="1200" height="800" fill="#060E10"/><rect x="360" y="250" width="220" height="300" rx="26" fill="none" stroke="#36D8BD" stroke-width="4" opacity="0.5"/><rect x="620" y="250" width="220" height="300" rx="26" fill="url(#tg)"/><path d="M735 360c-12-14-30-20-50-20-27 0-46 13-46 32 0 45 103 22 103 70 0 22-22 36-53 36-23 0-43-8-54-23" fill="none" stroke="#fff" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</template>
 </body>
 </html>
